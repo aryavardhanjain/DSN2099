@@ -16,6 +16,12 @@
         {% endif %}
         <ul class="nav justify-content-end">
             <li class="nav-item">
+                <a class="nav-link" href="{% url 'index' %}">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">About Us</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href=https://www.google.com/search?client=opera-gx&q=hospital+near+me&sourceid=opera&ie=UTF-8&oe=UTF-8>Hospitals near me</a>
             </li>
             {% if user.is_authenticated %}
