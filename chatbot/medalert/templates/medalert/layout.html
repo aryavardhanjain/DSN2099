@@ -1,44 +1,47 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+        <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
+        <link href="style.css" rel="stylesheet">
         <title class="title">{% block title %}MedAlert{% endblock %}</title>
     </head>
     <body>
-        <h1 class="nav justify-content-center">MedAlert</h1>
-        <div class="nav justify-content-center">
-            Stay alert. Stay healthy
+        <h1 class="Center-1">MedAlert</h1>
+        <div class="Center-2">
+            Stay alert. Stay healthy ☻. 
         </div>
-        {% if user.is_authenticated %}
-            <div class="nav justify-content-center">Signed in as &nbsp;<strong>{{ user.username }}</strong>.</div>
-        {% endif %}
-        <ul class="nav justify-content-end">
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'index' %}">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">About Us</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href=https://www.google.com/search?client=opera-gx&q=hospital+near+me&sourceid=opera&ie=UTF-8&oe=UTF-8>Hospitals near me</a>
-            </li>
-            {% if user.is_authenticated %}
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
-                </li>
-            {% else %}
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'login' %}">Log In</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'register' %}">Register</a>
-                </li>
-            {% endif %}
-        </ul>
-        <hr>
-        {% block body %}
-        {% endblock %}
-    </body>
+        
+            <div class="Center-2">Signed in as &nbsp;<strong>{{ user.username }}</strong>.</div>
+
+            
+            <div class="mid">
+                <ul class="navbar">
+                    <li> <a href="#" class="active"> Home</a></li>
+                    <li> <a href="#"> About us</a></li>
+                    <li> <a href="#"> Contact us</a></li>
+                    <li><a href=https://www.google.com/search?client=opera-gx&q=hospital+near+me&sourceid=opera&ie=UTF-8&oe=UTF-8>Hospitals near me</a></li>
+                </ul>       
+            </div>
+
+            <nav>
+                <div class="navbar-2">
+                  <div class="container nav-container">
+                      <input class="checkbox" type="checkbox" name="" id="" />
+                      <div class="hamburger-lines">
+                        <span class="line line1"></span>
+                        <span class="line line2"></span>
+                        <span class="line line3"></span>
+                      </div>  
+                    
+                    <div class="menu-items">
+                      <li><a href="{% url 'logout' %}">Log Out</a></li>
+                      <li><a  href="{% url 'login' %}">Log In</a></li>
+                      <li><a  href="{% url 'register' %}">Register</a></li>
+                    </div>
+                  </div>
+                </div>
+            </nav>
+            <hr>
+            
+        </body>
 </html>
