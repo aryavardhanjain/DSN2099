@@ -1,0 +1,33 @@
+{% extends "medalert/layout.html" %}
+
+{% block body %}
+    <h2 class="nav justify-content-center">Login</h2>
+
+    {% if message %}
+        <div>{{ message }}</div>
+    {% endif %}
+
+    <div class="nav justify-content-center">
+        <form action="{% url 'login' %}" method="POST">
+            {% csrf_token %}
+            <div class="col-sm-15">
+                <div class="form-group">
+                    <label for="exampleInputUsername" class="form-label">Username</label>
+                    <input autofocus class="form-control" type="text" name="username" placeholder="Username">
+                </div>
+                <div class="form-group">
+                    <label for="Password" class="form-label">Password</label>
+                    <input class="form-control" type="password" name="password" placeholder="Password">
+                </div>
+                <input class="btn btn-primary" type="submit" value="Login">
+            </div>
+            <br>
+            Don't have an account? <a href="{% url 'register' %}">Register here.</a>
+        </form>
+    </div>
+
+    
+
+    
+    
+{% endblock %}

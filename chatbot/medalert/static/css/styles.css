@@ -1,0 +1,45 @@
+body {
+    padding: 10px;
+}
+
+h2 {
+    padding-bottom: 20px;
+}
+
+.heading {
+    font-size: 48px;
+    text-align: left;
+    margin-left: 50px;
+    margin-bottom: 20px;
+    font-weight: 300;
+    line-height: 60px;
+    padding-top: 100px;
+}
+
+.subheading {
+    font-size: 26px;
+    color: #2d2d2d;
+    margin-left: 50px;
+    font-weight: 300;
+}
+
+button{
+    font-size: 16px;
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+    width: 240px;
+    display: inline-block;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+.chat-button {
+    background: linear-gradient(90deg, #302664 0, #513D87 100%);
+}
+
+.home-actions {
+    padding: 50px;
+}
