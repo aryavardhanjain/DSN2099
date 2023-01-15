@@ -1,8 +1,9 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
-        <link href="style.css" rel="stylesheet">
+        <link href="{% static 'medalert/styles.css' %}" rel="stylesheet">
         <title class="title">{% block title %}MedAlert{% endblock %}</title>
     </head>
     <body>
@@ -10,9 +11,10 @@
         <div class="Center-2">
             Stay alert. Stay healthy ☻. 
         </div>
-        
-            <div class="Center-2">Signed in as &nbsp;<strong>{{ user.username }}</strong>.</div>
 
+        {% if user.is_authenticated %}
+            <div class="Center-2">Signed in as &nbsp;<strong>{{ user.username }}</strong>.</div>
+        {% endif %}
             
             <div class="mid">
                 <ul class="navbar">
@@ -29,6 +31,7 @@
                      
               </div>
             <hr>
-            
+            {% block body %}
+            {% endblock %}
         </body>
 </html>
