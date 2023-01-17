@@ -1,12 +1,17 @@
 {% extends "medalert/layout.html" %}
 
 {% block body %}
-    <div class="heading">Get help. Get Better</div>
-    <div class="subheading">
-        "MedAlert will get the support you need, right here, right now."
+    <div class="banner-container">
+         <div class="heading">How may I help you ?</div>
+        <div class="sub-heading">"MedAlert will get the help you need, right here, right now."</div>
+        <div class="home-actions">
+            <button class="login-button">
+                {% if user.is_authenticated %}
+                    <a class="link" href="#">CHAT NOW</a>
+                {% else %}
+                    <a class="link" href="{% url 'register' %}">CHAT NOW</a>
+                {% endif %}
+            </button>
+        </div>
     </div>
-    <div class="home-actions">
-        <button class="chat-button"><a class="link" href="{% url 'register' %}">SIGN UP</a></button>
-    </div>
-    
 {% endblock %}
