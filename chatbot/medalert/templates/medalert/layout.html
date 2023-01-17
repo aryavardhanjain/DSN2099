@@ -3,35 +3,34 @@
 <html lang="en">
     <head>
         <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
-        <link href="{% static 'medalert/styles.css' %}" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Montserrat:wght@700;800;900&display=swap">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width-device=width, intial-scale=1">
+        <link href="{% static 'styles.css' %}" rel="stylesheet">
         <title class="title">{% block title %}MedAlert{% endblock %}</title>
     </head>
     <body>
-        <h1 class="Center-1">MedAlert</h1>
-        <div class="Center-2">
-            Stay alert. Stay healthy ☻. 
-        </div>
-
-        {% if user.is_authenticated %}
-            <div class="Center-2">Signed in as &nbsp;<strong>{{ user.username }}</strong>.</div>
-        {% endif %}
-            
-            <div class="mid">
-                <ul class="navbar">
-                    <li> <a href="#" class="active"> Home</a></li>
-                    <li> <a href="#"> About us</a></li>
-                    <li> <a href="#"> Contact us</a></li>
-                    <li><a href=https://www.google.com/search?client=opera-gx&q=hospital+near+me&sourceid=opera&ie=UTF-8&oe=UTF-8>Hospitals near me</a></li>
-                  </ul> 
-                    <div class="navbar-2">
-                      <li><a href="{% url 'logout' %}">Log Out</a></li>
-                      <li><a  href="{% url 'login' %}">Log In</a></li>
-                      <li><a  href="{% url 'register' %}">Register</a></li>
-                    </div>
-                     
-              </div>
-            <hr>
+        <div class="hero">
+            <nav>
+                <h2 class="logo">Med<span>Alert📌</span></h2>
+                <ul>
+                    <li><a href="{% url 'index' %}">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Services</a></li>
+                </ul>
+                <div>
+                    {% if user.is_authenticated %}
+                        <button type="button" class="login-button"><a href="{% url 'logout' %}">Log Out</a></button>
+                    {% else %}
+                        <button type="button" class="login-button"><a href="{% url 'login' %}">Login</a></button>
+                        <button type="button" class="login-button"><a href="{% url 'register' %}">Register</a></button>
+                    {% endif %}
+                </div>
+            </nav>
             {% block body %}
             {% endblock %}
+        </div>
         </body>
 </html>
