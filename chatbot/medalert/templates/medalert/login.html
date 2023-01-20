@@ -1,33 +1,29 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 {% extends "medalert/layout.html" %}
-
 {% block body %}
-    <h2 class="nav justify-content-center">Login</h2>
+{% load socialaccount %}
+{% load static %}
 
-    {% if message %}
-        <div>{{ message }}</div>
-    {% endif %}
-
-    <div class="nav justify-content-center">
-        <form action="{% url 'login' %}" method="POST">
-            {% csrf_token %}
-            <div class="col-sm-15">
-                <div class="form-group">
-                    <label for="exampleInputUsername" class="form-label">Username</label>
-                    <input autofocus class="form-control" type="text" name="username" placeholder="Username">
+    <div class="container">
+        <div class="login--wrapper">
+            <form action="{% url 'login' %}" method="POST">
+                {% csrf_token %}
+                <h2 class="register">Login</h2>
+                <div class="signin text-center">
+                    <a href="{% provider_login_url 'google' %}" class="text-dark">
+                        <img src="{% static 'google-signin-button.jpg' %}" alt="sign in button" style="height: 60px; width: 225px; margin-top: 30px; margin-bottom: 20px; border-radius: 10px;">
+                    </a>
                 </div>
-                <div class="form-group">
-                    <label for="Password" class="form-label">Password</label>
-                    <input class="form-control" type="password" name="password" placeholder="Password">
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Username</label>
+                    <input autofocus type="text" name="username" class="form-control" placeholder="Username" id="exampleInputEmail1" aria-describedby="emailHelp">
                 </div>
-                <input class="btn btn-primary" type="submit" value="Login">
-            </div>
-            <br>
-            Don't have an account? <a href="{% url 'register' %}">Register here.</a>
-        </form>
-    </div>
-
-    
-
-    
-    
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Password</label>
+                    <input type="password" name="password" placeholder="Enter your password" class="form-control" id="exampleInputPassword1">
+                </div>
+                <button type="submit" class="submit-btn" value="Login">Submit</button>   
+            </form>
+        </div>   
+    </div>    
 {% endblock %}
