@@ -60,12 +60,19 @@ span {
 }
 
 #navbar {
-    display: flex;
+   display: flex;
+    overflow: hidden;
+    position: fixed;
     align-items: center;
     justify-content: center;
-    padding-top: 43px;
+    padding-top: 0px;
     padding-left: 7%;
     padding-right: 10%;
+    background-image: linear-gradient(rgba(-50, 248, 255, 0.93), rgba(245, 248, 249, 0.821));
+    height: 25%;
+    top: 0px;
+    width: 100%;
+    z-index: 1;
 }
 
 ul {
