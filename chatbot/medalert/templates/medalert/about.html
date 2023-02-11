@@ -1,84 +1,71 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About Us</title>
-    <link rel="stylesheet" href="style1.css" />
+    <title>About</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}" />
   </head>
   <body>
     <div class="about">
       <nav id="navbar">
         <h2 class="logo">Med<span>Alert📌</span></h2>
         <ul>
-          <li><a href="index.html">Home</a></li>
+          <li><a href="{% url 'index' %}">Home</a></li>
           <li><a href="#"><span>About</span></a></li>
-          <li><a href="#">Contact Us</a></li>
+          <li><a href="{% url 'contact' %}">Contact Us</a></li>
           <li><a href="#">Services</a></li>
         </ul>
-
-      
+        <div>
+            {% if user.is_authenticated %}
+                <button type="button" class="login-button"><a href="{% url 'logout' %}">Log Out</a></button>
+            {% else %}
+                <button type="button" class="login-button"><a href="{% url 'login' %}">Login</a></button>
+                <button type="button" class="login-button"><a href="{% url 'register' %}">Register</a></button>
+            {% endif %}
+        </div>
       </nav>
+
+
+        <section id="home">
+            <h3>Who We Are?</h3>
+            <h1 class="h-primary">Helping You Stay Alert, Is What We Do For a Living.</h1>
+
+            <div class="box"></div>
+        </section>
+
+        <div id="services">
+            <div class="box">
+            <!-- <img src="img/hamburger-31775__340.webp" alt="" /> -->
+                <h2 class="Secondary-center">About App</h2>
+                <p class="center">
+                    The aim of our appplication is to provide users  free and easy prescription of medicine, and will help user to keep their health in check. People will be able to go to the website to seek help for any non serious symptoms which can be managed by routine/basic medicines at home. And as our application will be free for everybody,users will not have to pay money for these basic checkups.
+            If there is an emergency according to the bot, the application will also recommend and show the way to nearest hospitals, clinics and medical stores.
+                </p>
+            </div>
+        
+        </div>
+        <section id="client-section">
+            <h1 class="media">Media partners</h1>
+            <div id="clients">
+                <div class="client-item">
+                    <img src="{% static 'twitter-2935414__340.webp' %}" alt="Our Clients" />
+                </div>
+                <div class="client-item">
+                    <img src="{% static 'facebook-770688__340.webp' %}" alt="Our Clients" />
+                </div>
+                <div class="client-item">
+                    <img src="{% static 'instagram-1581266__340.webp' %}" alt="Our Clients" />
+                </div>
+            </div>
+        </section>  
     </div>
-
-
-    <section id="home">
-      <h3>WHO WE ARE</h3>
-      <h1 class="h-primary">Helping Patients, Is What We Do For a Living.</h1>
-
-      <div class="image">
-        <img src="img/certified.JPG" alt="" />
-        <img src="img/HelpingHands.JPG" alt="" />
-      </div>
-
-      <div class="notations">
-        <h4>Experienced Team</h4>
-        <h4>Patients Consulted</h4>
-      </div>
-      <div class="numbers">
-        <p>5Years</p>
-        <p>1000+</p>
-      </div>
-      <div class="box"></div>
-    </section>
-
-    <div id="services">
-    <div class="box">
-      <!-- <img src="img/hamburger-31775__340.webp" alt="" /> -->
-      <h2 class="Secondary-center">About App</h2>
-      <p class="center">
-        The aim of our appplication is to provide users  free and easy prescription of medicine, and will help user to keep their health in check. People will be able to go to the website to seek help for any non serious symptoms which can be managed by routine/basic medicines at home. And as our application will be free for everybody,users will not have to pay money for these basic checkups.
-If there is an emergency according to the bot, the application will also recommend and show the way to nearest hospitals, clinics and medical stores.
-      </p>
-    </div>
-    
-    </div>
-    <section id="client-section">
-      <h1>Media partner</h1>
-      <div id="clients">
-        <div class="client-item">
-          <img src="img/social-1710317__340.webp" alt="Our Clients" />
-        </div>
-        <div class="client-item">
-          <img src="img/paypal-784404__340.webp" alt="Our Clients" />
-        </div>
-        <div class="client-item">
-          <img src="img/twitter-2935414__340.webp" alt="Our Clients" />
-        </div>
-        <div class="client-item">
-          <img src="img/facebook-770688__340.webp" alt="Our Clients" />
-        </div>
-        <div class="client-item">
-          <img src="img/instagram-1581266__340.webp" alt="Our Clients" />
-        </div>
-      </div>
-    </section>
-
     <footer>
-      <div class="center">
-        Copyright &copy;www.myOnlinemeal.com All rights reserved
-      </div>
+        <div class="center">
+          Copyright MedAlert (GROUP 170) All rights reserved
+        </div>
     </footer>
   </body>
 </html>
