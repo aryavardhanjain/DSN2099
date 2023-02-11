@@ -1,17 +1,57 @@
-{% extends "medalert/layout.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Montserrat:wght@700;800;900&display=swap">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width-device=width, intial-scale=1">
+        <link href="{% static 'styles2.css' %}" rel="stylesheet">
+        <title class="title">{% block title %}MedAlert{% endblock %}</title>
+    </head>
+    <body>
+        <div class="hero">
+            <nav>
+                <h2 class="logo">Med<span>Alert📌</span></h2>
+                <ul>
+                    <li><a href="#"><span>Home</span></a></li>
+                    <li><a href="{% url 'about' %}">About</a></li>
+                    <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                    <li><a href="#">Services</a></li>
+                </ul>
+                <div>
+                    {% if user.is_authenticated %}
+                        <button type="button" class="login-button"><a href="{% url 'logout' %}">Log Out</a></button>
+                    {% else %}
+                        <button type="button" class="login-button"><a href="{% url 'login' %}">Login</a></button>
+                        <button type="button" class="login-button"><a href="{% url 'register' %}">Register</a></button>
+                    {% endif %}
+                </div>
+            </nav>
 
-{% block body %}
-    <div class="banner-container">
-         <div class="heading">How may I help you ?</div>
-        <div class="sub-heading">"MedAlert will get the help you need, right here, right now."</div>
-        <div class="home-actions">
-            <button class="login-button">
-                {% if user.is_authenticated %}
-                    <a class="link" href="#">CHAT NOW</a>
-                {% else %}
-                    <a class="link" href="{% url 'register' %}">CHAT NOW</a>
-                {% endif %}
-            </button>
+            {% if user.is_authenticated %}
+            <p style="font-size: 20px; color: black; text-align: center; margin-top: 20px; font-weight: 3px;">Welcome, {{ user.username }}.</p>
+            {% endif %}
+            <div class="banner-container">
+                <div class="heading">How may I help you ?</div>
+                <div class="sub-heading">"MedAlert will get the help you need, right here, right now."</div>
+                <div class="home-actions">
+                    <button class="login-button">
+                        {% if user.is_authenticated %}
+                            <a class="link" href="#">CHAT NOW</a>
+                        {% else %}
+                            <a class="link" href="{% url 'register' %}">CHAT NOW</a>
+                        {% endif %}
+                    </button>
+                </div>
+            </div>
+
         </div>
-    </div>
-{% endblock %}
+        </body>
+</html>
+
+
+   
