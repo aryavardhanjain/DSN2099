@@ -16,7 +16,7 @@
     height: 80vh;
     align-items: center;
     justify-content: center;
-    margin-top: 60px;
+    margin-top: -10px;
   }
 
   .form {
@@ -31,10 +31,10 @@
   }
 
   .hero {
-    background-image: linear-gradient(rgba(46, 248, 255, 0.93), rgba(245, 248, 249, 0.821)), url('background3.jpg ');
+    background-image: linear-gradient(rgb(192 182 20 / 93%), rgba(255, 255, 255, 0.821)), url('background3.jpg');
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center center;
+    background-position: absolute;
     height: 100%;
     width: 100%;
   }
@@ -87,16 +87,19 @@
   }
 
   nav ul li a:hover {
-    color: black;
+
+    color: #173a3f;
+    padding: 20px;
+    font-size: larger;
+    font-weight: bold;
     transition: .3s;
     text-decoration: none;
   }
 
 .login-button {
-  border: 1px solid;
-  border-color: grey;
+  border: none;
   margin-left: 10px;
-  background: #13fbe0;
+  background: #deca0d;
   padding: 12px 30px;
   border-radius: 30px;
   color: white;
@@ -116,7 +119,7 @@
   margin-left: 50px;
   margin-top: 20px;
   margin-bottom: 50px;
-  background: #13fbe0;
+  background: #173a3f;
   padding: 12px 35px;
   border-radius: 30px;
   color: white;
@@ -159,7 +162,177 @@
     font-weight: 300;
     padding-left: 20px;
   }
+
+  .about {
+    background-image: linear-gradient(rgb(192 182 20 / 93%), rgba(255, 255, 255, 0.821)), url('background3.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: relative;
+    height: 130%;
+    width: 100%;
+  }
+
+  #clients {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#client-section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 900px;
+    padding-top: 590px;
+}
+
+
+#clients img {
+    height: 124px;
+}
+
+#clients img:hover {
+    cursor: pointer;
+
+}
+
+.client-item {
+    padding: 18px;
+}
   
 
+  #home {
+    display: flex;
+    flex-direction: column;
+    padding: 3px 200px;
+    justify-content: center;
+    height: 100px;
+    top: 0px;
+    align-items: center;
+}
+
+.h-primary {
+  padding: 12px;
+  position: absolute;
+  top: 210px;
+  color: rgb(54, 50, 50);
+  justify-content: center;
+  font-size: 40px;
+  padding-top: 50px;
+}
 
 
+h3 {
+  color: rgb(54, 50, 50);
+  font-size: 3rem;
+  font-weight: bold;
+  position: absolute;
+  top: 180px;
+  
+}
+
+
+p {
+  padding: 128px;
+  padding-left: 147px;
+  padding-right: 153px;
+  margin: 2px 110px;
+  border-radius: 28px;
+  font-size: 2.5rem;
+  font-weight: 500;
+  color: rgb(134, 119, 119);
+}
+
+/* Service Section */
+#services {
+  display: flex;
+  margin: 34px;
+  position: absolute;
+  top: 650px;
+  
+}
+
+#services .box {
+  border: 2px solid brown;
+  padding: 34px;
+  margin: -300px 255px;
+  border-radius: 28px;
+  background: #f2f2f2;
+  margin-bottom: 20px;
+  display: flexbox;
+  width: 1030px;
+  height: 336px;
+  position: absolute;
+  left: -80px;
+}
+
+#services .box img {
+  height: 160px;
+  width: 200px;
+  margin: auto;
+  display: block;
+}
+
+#services .box p {
+  font-family: Bradley Hand, cursive;
+  color: black;
+  /* position: absolute;
+  top: -20px;
+  text-align: justify;
+  justify-content: center;
+  font-size: 25px; */
+
+  padding: 23px;
+  margin: -20px 100px;
+  font-size: 25px;
+  margin-bottom: 20px;
+  display: flexbox;
+  width: 1020px;
+  
+  position: absolute;
+  left: -80px;
+}
+
+/* Clients section  */
+#clients {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#client-section {
+  height: 344px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+
+}
+
+
+
+#clients img {
+  height: 124px;
+}
+
+#clients img:hover {
+  cursor: pointer;
+
+}
+
+.client-item {
+  padding: 18px;
+}
+
+.media {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+
+footer {
+  background-color: black;
+  color: #fff;
+  padding: 10px 20px;
+  text-align: center;
+}
