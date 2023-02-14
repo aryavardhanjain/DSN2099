@@ -1,10 +1,12 @@
 {% load static %}
+{% load socialaccount %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Montserrat:wght@700;800;900&display=swap">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="description" content="">
@@ -18,10 +20,10 @@
             <nav>
                 <h2 class="logo">Med<span>Alert📌</span></h2>
                 <ul>
-                    <li><a href="#"><span>Home</span></a></li>
+                    <li><a href="{% url 'index' %}">Home</a></li>
                     <li><a href="{% url 'about' %}">About</a></li>
                     <li><a href="{% url 'contact' %}">Contact Us</a></li>
-                    <li><a href="#">Services</a></li>
+                    <li><a href="{% url 'services' %}">Services</a></li>
                 </ul>
                 <div>
                     {% if user.is_authenticated %}
@@ -33,31 +35,34 @@
                 </div>
             </nav>
             <div class="container">
-                <div class="login--wrapper">
-                    <form action="{% url 'register' %}" method="POST">
-                        <h2 class="register">Register</h2>
-                        {% if message %}
-                            <div class="nav justify-content-center">
-                                <div class="alert alert-danger" role="alert">
-                                    {{ message }}
+                <div class="content">
+                    <div class="right-side">
+                        <div class="topic-text">Register</div>
+                        <form action="{% url 'register' %}" method="POST">
+                            {% if message %}
+                                <div class="nav justify-content-center">
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ message }}
+                                    </div>
                                 </div>
+                            {% endif %}
+                            {% csrf_token %}
+                            <div class="input-box">
+                                <input type="text" name="username" placeholder="Enter your name" />
+                              </div>
+                              <div class="input-box">
+                                <input type="password" name="password" placeholder="Enter your password" />
+                              </div>
+                              <div class="input-box message-box">
+                                  <input type="password" name="confirmation" placeholder="Confirm your password" ></input>
+                              </div>
+                            <button type="submit" class="send-btn">Submit</button> 
+                            <div class="horizontal">
+                                <div class="or">or</div>
                             </div>
-                        {% endif %}
-                        {% csrf_token %}
-                        <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Username</label>
-                            <input autofocus type="text" name="username" class="form-control" placeholder="Username" id="exampleInputEmail1" aria-describedby="emailHelp">
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">Password</label>
-                            <input type="password" name="password" placeholder="Enter your password" class="form-control" id="exampleInputPassword1">
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Confirm Password</label>
-                            <input type="password" name="confirmation" class="form-control" id="exampleInputEmail1" placeholder="Confirm Password" aria-describedby="emailHelp">
-                        </div>
-                        <button type="submit" class="submit-btn">Submit</button>   
-                    </form>
+                            <a href="{% provider_login_url 'google' %}"><img src="{% static 'google-signin-button.jpg' %}" alt="googlebutton" style="height: 90px; width: 70%; margin-left: 15%; margin-top: 20px;"></a>  
+                        </form>
+                    </div>
                 </div>   
             </div>        
         </div>
