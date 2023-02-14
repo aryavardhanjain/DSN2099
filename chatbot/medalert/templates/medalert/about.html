@@ -16,7 +16,7 @@
           <li><a href="{% url 'index' %}">Home</a></li>
           <li><a href="#"><span>About</span></a></li>
           <li><a href="{% url 'contact' %}">Contact Us</a></li>
-          <li><a href="#">Services</a></li>
+          <li><a href="{% url 'services' %}">Services</a></li>
         </ul>
         <div>
             {% if user.is_authenticated %}
