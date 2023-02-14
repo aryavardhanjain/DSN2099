@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,44 +6,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Services</title>
-<link rel="stylesheet" href="style3.css">
-<link Integrity= "Sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5lDxbcnCeuOxjzrPF/Et3URy9Bv1WTRi" crossorigin= "Anonymous" rel="stylesheet" href="Https://Cdn.Jsdelivr.Net/Npm/Bootstrap@5.2.2/Dist/Css/Bootstrap.min.Css">
-<!-- Font Awesome CDN-->
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-/>
-<!-- Google Font -->
-<link
-  href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
-  rel="stylesheet"
-/>
-<script Src="Https://Cdn.Jsdelivr.Net/Npm/Bootstrap@5.2.2/Dist/Js/Bootstrap.Bundle.Min.Js" Integrity="Sha384-OERcA2EqjJCMA+/3y+GxlOqMEjwtxJY7qPCqsdltbNJuaOe923+Mo//F6V8Qbsw3" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'styles3.css' %}">
+    <link Integrity= "Sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5lDxbcnCeuOxjzrPF/Et3URy9Bv1WTRi" crossorigin= "Anonymous" rel="stylesheet" href="Https://Cdn.Jsdelivr.Net/Npm/Bootstrap@5.2.2/Dist/Css/Bootstrap.min.Css">
+    <!-- Font Awesome CDN-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <!-- Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <script Src="Https://Cdn.Jsdelivr.Net/Npm/Bootstrap@5.2.2/Dist/Js/Bootstrap.Bundle.Min.Js" Integrity="Sha384-OERcA2EqjJCMA+/3y+GxlOqMEjwtxJY7qPCqsdltbNJuaOe923+Mo//F6V8Qbsw3" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="hero">
         <nav>
             <h2 class="logo">Med<span>Alert📌</span></h2>
             <ul>
-                <li><a href='index.html'>Home</a></li>
-                <li><a href='about.html'>About</a></li>
-                <li><a href='ContactUs.html'>Contact Us</a></li>
+                <li><a href="{% url 'index' %}">Home</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li><a href="{% url 'contact' %}">Contact Us</a></li>
                 <li><a href="#"><span>Services</span></a></li>
             </ul>
             <div>
-                
+                {% if user.is_authenticated %}
                     <button type="button" class="login-button"><a href="{% url 'logout' %}">Log Out</a></button>
-                
-                    <button type="button" class="login-button"><a href='login.html'>Login</a></button>
-                    <button type="button" class="login-button"><a href='register.html'>Register</a></button>
-               
-                    
+                {% else %}
+                    <button type="button" class="login-button"><a href="{% url 'login' %}">Login</a></button>
+                    <button type="button" class="login-button"><a href="{% url 'register' %}">Register</a></button>
+                {% endif %}
             </div>
         </nav>
       
-          
-         
-            <section>
+        <section>
               <div class="row">
                 <h2 class="section-heading">Our Services</h2>
               </div>
@@ -50,9 +48,9 @@
                 <div class="column">
                   <div class="card">
                     <div class="icon-wrapper">
-                      <i class="fas fa-hammer"></i>
+                      <i class="fas fa-robot"></i>
                     </div>
-                    <h3>ChatBot</h3>
+                    <h3><a class="hospital" href="{% url 'index' %}">ChatBot</a></h3>
                     <p>
                       We are providing our users a trained medical ChatBot, which will help them 
                       cure non-serious illness by advising respective medicines.
@@ -62,9 +60,10 @@
                 <div class="column">
                   <div class="card">
                     <div class="icon-wrapper">
-                      <i class="fas fa-brush"></i>
+                      <i class="fas fa-ambulance"></i>
                     </div>
-                    <h3>Nearest Hospitals</h3>
+                    <h3><a class="hospital" href="https://www.google.com/maps/search/hospital+near+me/@30.3416134,78.0669983,13z/data=!3m1!4b1" target="
+                        ">Nearest Hospitals</a></h3>
                     <p>
                       We will be also providing Nearest Hospital location in case of 
                       any unsatisfactory response from the bot.
@@ -74,33 +73,32 @@
                 <div class="column">
                   <div class="card">
                     <div class="icon-wrapper">
-                      <i class="fas fa-wrench"></i>
+                      <i class="fas fa-stethoscope"></i>
                     </div>
                     <h3>Doctor's Appointment</h3>
                     <p>
-                      In future, user can able to appoint meeting to the doctor for 
-                      consulting him/her.
+                      FUTURE SCOPE: User will be able to book an appointment with a doctor for a detailed consultation.
                     </p>
                   </div>
                 </div>
                 <div class="column">
                   <div class="card">
                     <div class="icon-wrapper">
-                      <i class="fas fa-truck-pickup"></i>
+                      <i class="fab fa-rocketchat"></i>
                     </div>
                     <h3>Chat With Doctor</h3>
                     <p>
-                      In future, user can also able to communicate with the doctors
-                      in hybrid mode.
+                      FUTURE SCOPE: User will also be able to communicate with the doctors
+                      through chat.
                     </p>
                   </div>
                 </div>
                 <div class="column">
                   <div class="card">
                     <div class="icon-wrapper">
-                      <i class="fas fa-broom"></i>
+                      <i class="fas fa-handshake"></i>
                     </div>
-                    <h3>Contact with the Team</h3>
+                    <h3><a class="hospital" href="{% url 'contact' %}">Write to Us</a></h3>
                     <p>
                       In case, if user wants to convey any message to the owners of website,
                       he/she can directly send us a messagae through CONTACT US.
@@ -110,18 +108,16 @@
                 <div class="column">
                   <div class="card">
                     <div class="icon-wrapper">
-                      <i class="fas fa-plug"></i>
+                      <i class="fas fa-newspaper"></i>
                     </div>
-                    <h3>Service Heading</h3>
+                    <h3>Newsletter</h3>
                     <p>
-                      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam
-                      consequatur necessitatibus eaque.
+                     FUTURE SCOPE: Stay Updated with the latest tips, news or updates regarding MedAlert and its services.
                     </p>
                   </div>
                 </div>
               </div>
             </section>
-         
     </div>
 </body>
 </html>
