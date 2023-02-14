@@ -186,3 +186,23 @@
       max-width: 33.33%;
     }
   }
+
+  .hospital:link {
+    color: white;
+    text-decoration: none;
+  }
+
+  .hospital:visited{
+    color: #000000;
+    text-decoration: none;
+  }
+
+  .hospital:active{
+    color: #000000;
+    text-decoration: none;
+  }
+
+  .hospital:hover {
+    color: white;
+    text-decoration: none;
+  }
