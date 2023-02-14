@@ -20,7 +20,7 @@
                     <li><a href="#"><span>Home</span></a></li>
                     <li><a href="{% url 'about' %}">About</a></li>
                     <li><a href="{% url 'contact' %}">Contact Us</a></li>
-                    <li><a href="#">Services</a></li>
+                    <li><a href="{% url 'services' %}">Services</a></li>
                 </ul>
                 <div>
                     {% if user.is_authenticated %}
@@ -38,18 +38,10 @@
             <div class="banner-container">
                 <div class="heading">How may I help you ?</div>
                 <div class="sub-heading">"MedAlert will get the help you need, right here, right now."</div>
-                <div class="home-actions">
-                    <button class="login-button">
-                        {% if user.is_authenticated %}
-                            <a class="link" href="#">CHAT NOW</a>
-                        {% else %}
-                            <a class="link" href="{% url 'register' %}">CHAT NOW</a>
-                        {% endif %}
-                    </button>
-                </div>
             </div>
 
         </div>
+        <script src="{% static 'script.js' %}" type="text/javascript"></script>
         </body>
 </html>
 
