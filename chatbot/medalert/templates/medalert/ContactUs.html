@@ -64,10 +64,35 @@
             <div class="input-box message-box">
                 <input type="text" placeholder="Write your message" minlength="10" maxlength="50"/>
             </div>
-           <button type="submit">Send now</button>
+             <div class="Send">
+              <button type="submit" onclick="openPopup()">Send now</button>
+              <div class="popup" id="popup">
+                <img src="img/tick.jpg">
+                <h2>Thank You!</h2>
+                <p>Your details has been successfully submited. Thanks! </p>
+                <button type="button" onclick="closePopup()">OK</button>
+              </div>
+            </div>
           </form>
         </div>
       </div>
     </div>
-  </body>
+  </div>
+
+  <script>
+    let popup = document.getElementById("popup");
+
+
+    function openPopup() {
+      popup.classList.add("open-popup");
+
+    }
+    function closePopup() {
+      popup.classList.remove("open-popup");
+
+    }
+  </script>
+
+</body>
+
 </html>
